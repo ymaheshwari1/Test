@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Enter the release number to be deployed'
+        required: true
+        default: git describe --tags `git rev-list --tags --max-count=1`
+        type: string
+jobs:
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Release Number: $RELEASE"
+        env:
+          RELEASE: ${{ inputs.release }}
+        
