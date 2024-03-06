@@ -2,7 +2,7 @@ name: Pull Request Merged
 
 on:
   pull_request:
-    types: [closed, opened]
+    types: [closed, opened, edited]
 
 jobs:
   pr_merged:
@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: "log"
         run:
-          echo "::debug::${{ github.base_ref }}"
+          echo "::debug::${{ github.head_ref }}"
