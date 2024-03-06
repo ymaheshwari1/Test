@@ -1,0 +1,14 @@
+name: Pull Request Merged
+
+on:
+  pull_request:
+    types: [closed, opened]
+
+jobs:
+  pr_merged:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "log"
+        run:
+          echo "::debug::${{ github.base_ref }}"
