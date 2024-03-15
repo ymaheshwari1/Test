@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: "Fetch release name"
-        run: echo "NAME=$( gh release list --limit 1 )" >> $GITHUB_ENV
+        run: echo "NAME=${{ gh release list --limit 1 }}" >> $GITHUB_ENV
         id: release
 
       - name: "Log version"
