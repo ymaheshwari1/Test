@@ -12,6 +12,9 @@ jobs:
       - name: "Fetch release name"
         run: echo "NAME=$( gh release list --limit 1 )" >> $GITHUB_ENV
         id: release
+
+      - name: "Log version"
+        run: echo $( gh release list --limit 1 )
       
       - name: "Create new label on release"
         run: gh label create "release-$NAME"
