@@ -15,6 +15,8 @@ jobs:
 
       - name: "Log version"
         run: echo $( gh release list --limit 1 )
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: "Create new label on release"
         run: gh label create "release-$NAME"
